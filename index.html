@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>madeforzizaa❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&family=Pacifico&display=swap" rel="stylesheet">
+    <title>Special for Zizaa ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;500;700&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     
     <style>
@@ -12,7 +12,7 @@
             --primary: #ff4d6d;
             --secondary: #ff85a1;
             --bg: #fff5f7;
-            --gold: #ffd700;
+            --font-hand: 'Caveat', cursive;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -22,65 +22,84 @@
             background-color: var(--bg);
             overflow: hidden;
             height: 100vh;
-            background-image: radial-gradient(#ffcad4 0.5px, transparent 0.5px);
-            background-size: 20px 20px;
         }
 
-        /* --- 1. LOCK SCREEN (LOADING) --- */
+        /* --- 1. SUPER INTERACTIVE LOADING SCREEN --- */
         #lock-screen {
             position: fixed;
             inset: 0;
             z-index: 9999;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe4e6 100%);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #ff85a1, #ff4d6d);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            color: white;
-            transition: 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            text-align: center;
+            transition: 1.5s cubic-bezier(1, 0, 0, 1);
         }
 
-        @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Animasi Nama Zizaa */
+        .zizaa-name {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 15px rgba(255, 77, 109, 0.2);
+            background: linear-gradient(to right, #ff4d6d 20%, #ff85a1 40%, #ff85a1 60%, #ff4d6d 80%);
+            background-size: 200% auto;
+            color: #000;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
         }
 
-        .timer-container {
-            background: rgba(255, 255, 255, 0.2);
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .loader-card {
+            background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
             padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border-radius: 40px;
+            border: 2px solid white;
+            text-align: center;
+            width: 85%;
+            max-width: 400px;
+            position: relative;
             z-index: 10;
         }
 
-        .floating-heart {
+        #countdown {
+            font-family: var(--font-hand);
+            font-size: 2.8rem;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .heart-bubble {
             position: absolute;
-            color: rgba(255, 255, 255, 0.4);
-            pointer-events: none;
-            z-index: 1;
-            animation: floatUp linear forwards;
+            cursor: pointer;
+            animation: floatBubble 6s linear infinite;
+            z-index: 5;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.05));
         }
 
-        @keyframes floatUp {
-            from { transform: translateY(110vh) scale(0.5); opacity: 0; }
-            to { transform: translateY(-10vh) scale(1.5); opacity: 1; }
+        @keyframes floatBubble {
+            0% { transform: translateY(110vh) translateX(0); opacity: 0; }
+            20% { opacity: 0.8; }
+            100% { transform: translateY(-20vh) translateX(50px); opacity: 0; }
         }
 
-        #quote-text {
-            font-style: italic;
-            margin-top: 20px;
-            font-size: 1rem;
-            min-height: 25px;
-            opacity: 0;
-            transition: opacity 1s;
+        .perc-text {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-top: 10px;
+            font-family: var(--font-hand);
         }
 
-        /* --- 2. INTERACTIVE AREA --- */
+        /* --- 2. MAIN CONTENT --- */
         #main-content {
             display: none;
             width: 100vw;
@@ -88,85 +107,40 @@
             position: relative;
         }
 
-        #click-area { width: 100%; height: 100%; cursor: crosshair; }
-
-        #instruction {
+        .photo-card {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Pacifico', cursive;
-            font-size: 2.5rem;
-            color: var(--primary);
-            text-shadow: 3px 3px 0px white;
-            z-index: 10;
-            pointer-events: none;
-            text-align: center;
-        }
-
-        /* --- HEART CARDS --- */
-        .heart-card {
-            position: absolute;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            pointer-events: none;
-            filter: drop-shadow(0 10px 15px rgba(255, 77, 109, 0.3));
-        }
-
-        .photo-heart {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            clip-path: path('M80 15.7c-29-29-80-10.9-80 40.8 0 28.3 25.7 51.9 54.4 75 8.8 7.1 16.7 13.5 25.6 21 8.8-7.5 16.7-13.8 25.6-21 28.7-23.1 54.4-46.7 54.4-75 0-51.7-51-69.8-80-40.8z');
-            border: 5px solid white;
             background: white;
+            padding: 10px 10px 30px 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            animation: cardAppear 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .heart-text {
-            margin-top: -15px;
-            background: linear-gradient(45deg, #ff4d6d, #ff85a1);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            border: 2px solid white;
-            animation: heartBeat 1.5s infinite;
+        @keyframes cardAppear {
+            0% { transform: scale(0) rotate(-15deg); }
+            100% { transform: scale(1) rotate(var(--r)); }
         }
 
-        /* --- 3. FINAL PAGE --- */
+        /* --- 3. FINAL MESSAGE --- */
         #final-page {
             display: none;
             position: fixed;
             inset: 0;
             z-index: 10000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: white;
             justify-content: center;
             align-items: center;
             opacity: 0;
             transition: 2s;
         }
 
-        .letter-box {
-            width: 90%;
-            max-width: 500px;
-            background: white;
-            padding: 40px;
-            border-radius: 50px 5px 50px 5px;
-            border: 5px solid var(--primary);
-            box-shadow: 20px 20px 0px var(--secondary);
+        .envelope {
+            width: 85%;
+            max-width: 450px;
+            padding: 30px;
+            border: 2px solid #ffcad4;
+            border-radius: 20px;
             text-align: center;
-        }
-
-        .sparkle {
-            position: absolute;
-            width: 6px;
-            height: 6px;
-            background: var(--gold);
-            border-radius: 50%;
-            pointer-events: none;
         }
 
         .music-btn {
@@ -176,12 +150,11 @@
             background: var(--primary);
             color: white;
             border: none;
-            padding: 15px;
+            width: 50px; height: 50px;
             border-radius: 50%;
             cursor: pointer;
             z-index: 11000;
             font-size: 1.2rem;
-            box-shadow: 0 5px 20px rgba(255, 77, 109, 0.4);
         }
 
         .hidden { display: none !important; }
@@ -190,32 +163,38 @@
 <body>
 
     <div id="lock-screen">
-        <div id="bg-hearts"></div>
-        <div class="timer-container animate__animated animate__fadeInUp">
-            <h1 style="font-family: 'Pacifico';">Counting Down for Zizaa...</h1>
-            <div id="countdown" style="font-size: 3.5rem; margin: 15px 0; font-weight: bold; text-shadow: 2px 2px 10px rgba(0,0,0,0.1);">
-                00d 00h 00m 00s
+        <div id="bubble-container"></div>
+        
+        <h1 class="zizaa-name">Special for Zizaa ❤️</h1>
+        
+        <div class="loader-card">
+            <p style="font-size: 0.9rem; letter-spacing: 2px; color: #888; margin-bottom: 10px;">WILL BE OPENED IN:</p>
+            <div id="countdown">00:00:00:00</div>
+            
+            <div style="width: 100%; height: 8px; background: #eee; border-radius: 10px; overflow: hidden;">
+                <div id="loading-bar" style="width: 0%; height: 100%; background: var(--primary); transition: 0.5s;"></div>
             </div>
-            <p style="letter-spacing: 2px; font-weight: 500;">COMING SOON</p>
-            <div id="quote-text">Sabar yaa, sesuatu yang indah butuh waktu... ✨</div>
+            <div id="perc-label" class="perc-text">Menyiapkan kasih sayang... 0%</div>
         </div>
+        
+        <p style="margin-top: 30px; color: var(--secondary); font-family: var(--font-hand); font-size: 1.2rem;">
+            "Pecahin gelembungnya sambil nunggu ya!"
+        </p>
     </div>
 
     <div id="main-content">
-        <div id="click-area">
-            <div id="instruction" class="animate__animated animate__pulse animate__infinite">Tap Layarnyaa zizaaa! 🎁</div>
-            <div id="content-wrapper"></div>
+        <div id="click-area" style="width: 100%; height: 100%;">
+            <div style="position: absolute; top: 10%; width: 100%; text-align: center; font-family: var(--font-hand); font-size: 2rem; color: var(--primary);">
+                Tap di mana saja, Zizaa! 🎁
+            </div>
+            <div id="cards-wrapper"></div>
         </div>
     </div>
 
     <div id="final-page">
-        <div class="letter-box animate__animated animate__zoomIn">
-            <h1 style="font-family: 'Pacifico'; color: var(--primary); margin-bottom: 20px;">Happy Birthday! 🎂</h1>
-            <p style="font-size: 1.1rem; line-height: 1.6; color: #333;">
-                Sayang, selamat ulang tahun ya! Di hari spesial ini, aku cuma mau bilang terima kasih sudah lahir dan sudah ada buat aku. <br><br>
-                Kamu adalah kado terindah yang pernah aku terima. Semoga kita terus begini, ya? Bahagia terus, sehat terus, dan jangan pernah berhenti tersenyum karena senyummu itu duniaku. <br><br>
-                <b>I LOVE YOU SO MUCH! ❤️</b>
-            </p>
+        <div class="envelope">
+            <h1 style="font-family: 'Dancing Script'; color: var(--primary); margin-bottom: 20px;">HBD Sayang! 🎂</h1>
+            <p id="typewriter" style="line-height: 1.8; color: #444; font-family: 'Quicksand';"></p>
         </div>
     </div>
 
@@ -225,69 +204,59 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 
     <script>
+        // CONFIG
         const targetDate = new Date("May 18, 2026 00:00:00").getTime();
+        const createdDate = new Date("April 20, 2026 00:00:00").getTime();
 
-        const quotes = [
-            "Sabar yaa, sesuatu yang indah butuh waktu... ✨",
-            "Gak sabar mau kasih liat ini ke Zizaa! ❤️",
-            "Tiap detik berharga kalau buat kamu. 😊",
-            "Loading rasa sayang Rehan ke Zizaa... 🚀",
-            "Stay tuned yaa cantik! 🎁"
+        const messages = [
+            { img: 'foto-1.jpg', txt: 'Hai Zizaa! 👋' },
+            { img: 'foto-2.jpg', txt: 'Kamu cantik bgt hari ini ❤️' },
+            { img: 'foto-3.jpg', txt: 'Senyum terus yaa 😊' },
+            { img: 'foto-4.jpg', txt: 'Semangat PKL-nya! 💪' },
+            { img: 'foto-5.jpg', txt: 'Rehan selalu ada buat kamu 🤝' },
+            { img: 'foto-6.jpg', txt: 'My Sunshine ☀️' },
+            { img: 'foto-7.jpg', txt: 'Satu lagi... 🔜' }
         ];
 
-        const dataSurprise = [
-            { img: 'foto-1.jpg', msg: 'Haloo zizaaa Sayang! 👋' },
-            { img: 'foto-2.jpg', msg: 'zizaaa Cantik Banget Hari Ini ❤️' },
-            { img: 'foto-3.jpg', msg: 'Senyum Terus Yaaa sayangg 😊' },
-            { img: 'foto-4.jpg', msg: 'Jangan Pernah Menyerah ingatt! 💪' },
-            { img: 'foto-5.jpg', msg: 'Rehann Selalu Ada Buat Zizaaaa 🤝' },
-            { img: 'foto-6.jpg', msg: 'My Sunshineee hehehe ☀️' },
-            { img: 'foto-7.jpg', msg: 'Terakhir... Klik Lagi zizaaa! 🔜' }
-        ];
+        const letterText = "Zizaa sayang... Selamat ulang tahun ya! Terima kasih sudah hadir dan jadi alasan Rehan buat semangat terus tiap hari. Semoga di umur baru ini kamu makin bahagia, sukses terus sekolahnya, dan kita bisa terus bareng-bareng. I love you so much! ❤️";
 
-        let index = 0;
-        let isTransitioning = false;
-        let quoteIndex = 0;
-
-        // Quote & Floating Hearts Logic
-        function changeQuote() {
-            const qEl = document.getElementById('quote-text');
-            if(qEl) {
-                qEl.style.opacity = 0;
-                setTimeout(() => {
-                    qEl.innerHTML = quotes[quoteIndex];
-                    qEl.style.opacity = 1;
-                    quoteIndex = (quoteIndex + 1) % quotes.length;
-                }, 1000);
-            }
+        // GENERATE BUBBLES
+        function createBubble() {
+            const container = document.getElementById('bubble-container');
+            const bubble = document.createElement('div');
+            bubble.className = 'heart-bubble';
+            bubble.innerHTML = '❤️';
+            bubble.style.left = Math.random() * 100 + 'vw';
+            bubble.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            bubble.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            
+            bubble.onclick = (e) => {
+                confetti({ particleCount: 10, spread: 30, origin: { x: e.clientX/window.innerWidth, y: e.clientY/window.innerHeight }, colors: ['#ff4d6d'] });
+                bubble.remove();
+            };
+            
+            container.appendChild(bubble);
+            setTimeout(() => bubble.remove(), 7000);
         }
-        setInterval(changeQuote, 4000);
+        setInterval(createBubble, 800);
 
-        function createFloatingHeart() {
-            const container = document.getElementById('bg-hearts');
-            if(!container) return;
-            const heart = document.createElement('div');
-            heart.className = 'floating-heart';
-            heart.innerHTML = '❤️';
-            heart.style.left = Math.random() * 100 + 'vw';
-            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
-            heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
-            heart.style.opacity = Math.random();
-            container.appendChild(heart);
-            setTimeout(() => heart.remove(), 8000);
-        }
-        setInterval(createFloatingHeart, 500);
-
-        // Countdown Logic
-        function updateTimer() {
+        // COUNTDOWN & PROGRESS BAR
+        function updateLoader() {
             const now = new Date().getTime();
             const diff = targetDate - now;
+            
+            // Progress Bar Logic
+            const totalDuration = targetDate - createdDate;
+            const elapsed = now - createdDate;
+            const progress = Math.min(Math.floor((elapsed / totalDuration) * 100), 100);
+            
+            document.getElementById('loading-bar').style.width = progress + '%';
+            document.getElementById('perc-label').innerText = `Menyiapkan kasih sayang Rehan... ${progress}%`;
 
             if (diff <= 0) {
-                const ls = document.getElementById('lock-screen');
-                ls.style.transform = 'translateY(-100%)';
+                document.getElementById('lock-screen').style.transform = 'translateY(-100%)';
                 setTimeout(() => {
-                    ls.classList.add('hidden');
+                    document.getElementById('lock-screen').classList.add('hidden');
                     document.getElementById('main-content').style.display = 'block';
                 }, 1000);
                 return true;
@@ -300,74 +269,54 @@
             document.getElementById('countdown').innerHTML = `${d}d ${h}h ${m}m ${s}s`;
             return false;
         }
-        const timerInt = setInterval(() => { if(updateTimer()) clearInterval(timerInt); }, 1000);
-        updateTimer();
+        setInterval(updateLoader, 1000);
+        updateLoader();
 
-        // Interaction Logic
-        const clickArea = document.getElementById('click-area');
-        const wrapper = document.getElementById('content-wrapper');
+        // MAIN INTERACTION
+        let index = 0;
         const music = document.getElementById('bgMusic');
 
-        clickArea.addEventListener('click', (e) => {
-            if (isTransitioning) return;
+        document.getElementById('click-area').addEventListener('click', (e) => {
             if (music.paused) music.play();
-            
-            document.getElementById('instruction').style.display = 'none';
-            createClickSparkles(e.clientX, e.clientY);
-
-            if (index < dataSurprise.length) {
-                const item = dataSurprise[index];
+            if (index < messages.length) {
                 const card = document.createElement('div');
-                card.className = 'heart-card animate__animated animate__rubberBand';
-                card.style.left = `${e.clientX - 80}px`;
-                card.style.top = `${e.clientY - 80}px`;
-                card.style.setProperty('--rotation', `${Math.random() * 30 - 15}deg`);
-                card.style.transform = `rotate(${Math.random() * 30 - 15}deg)`;
+                card.className = 'photo-card';
+                card.style.left = (e.clientX - 75) + 'px';
+                card.style.top = (e.clientY - 75) + 'px';
+                const r = Math.random() * 20 - 10;
+                card.style.setProperty('--r', r + 'deg');
+                card.style.transform = `rotate(${r}deg)`;
                 
                 card.innerHTML = `
-                    <img src="${item.img}" class="photo-heart" onerror="this.src='https://via.placeholder.com/150/ff4d6d/ffffff?text=Love'">
-                    <div class="heart-text">${item.msg}</div>
+                    <img src="${messages[index].img}" style="width:130px; height:130px; object-fit:cover;" onerror="this.src='https://via.placeholder.com/130/ff4d6d/ffffff?text=Zizaa'">
+                    <p style="font-family: var(--font-hand); text-align:center; margin-top:10px;">${messages[index].txt}</p>
                 `;
-                
-                wrapper.appendChild(card);
-                confetti({ particleCount: 15, spread: 40, origin: { x: e.clientX/window.innerWidth, y: e.clientY/window.innerHeight } });
+                document.getElementById('cards-wrapper').appendChild(card);
                 index++;
 
-                if (index === dataSurprise.length) {
-                    isTransitioning = true;
-                    setTimeout(showFinalSurprise, 2000);
+                if (index === messages.length) {
+                    setTimeout(() => {
+                        document.getElementById('final-page').style.display = 'flex';
+                        setTimeout(() => {
+                            document.getElementById('final-page').style.opacity = '1';
+                            typeWriter();
+                            confetti({ particleCount: 150, spread: 70, origin: { y: 0.6 } });
+                        }, 100);
+                    }, 2000);
                 }
             }
         });
 
-        function createClickSparkles(x, y) {
-            for (let i = 0; i < 8; i++) {
-                const p = document.createElement('div');
-                p.className = 'sparkle';
-                p.style.left = x + 'px';
-                p.style.top = y + 'px';
-                document.body.appendChild(p);
-                const angle = Math.random() * Math.PI * 2;
-                const dist = Math.random() * 50 + 20;
-                p.animate([
-                    { transform: 'translate(0, 0) scale(1)', opacity: 1 },
-                    { transform: `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px) scale(0)`, opacity: 0 }
-                ], { duration: 1000, easing: 'ease-out' });
-                setTimeout(() => p.remove(), 1000);
+        function typeWriter() {
+            let i = 0;
+            function type() {
+                if (i < letterText.length) {
+                    document.getElementById("typewriter").innerHTML += letterText.charAt(i);
+                    i++;
+                    setTimeout(type, 50);
+                }
             }
-        }
-
-        function showFinalSurprise() {
-            const end = Date.now() + (3 * 1000);
-            (function frame() {
-                confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#ff4d6d', '#ffd700'] });
-                confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#ff4d6d', '#ffd700'] });
-                if (Date.now() < end) requestAnimationFrame(frame);
-            }());
-
-            const final = document.getElementById('final-page');
-            final.style.display = 'flex';
-            setTimeout(() => final.style.opacity = '1', 100);
+            type();
         }
 
         document.getElementById('musicBtn').onclick = (e) => {
